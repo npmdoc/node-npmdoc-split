@@ -61,12 +61,98 @@
 
     <li class="apidocModuleLi"><a href="#apidoc.module.split">module split</a><ol>
 
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.split.split">
+            function <span class="apidocSignatureSpan"></span>split
+            <span class="apidocSignatureSpan">(matcher, mapper, options)</span>
+            </a>
+
+        </li>
+
     </ol></li>
 
 </ol></div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.split" id="apidoc.module.split">module split</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.split.split" id="apidoc.element.split.split">
+        function <span class="apidocSignatureSpan"></span>split
+        <span class="apidocSignatureSpan">(matcher, mapper, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function split(matcher, mapper, options) {
+  var decoder = new Decoder()
+  var soFar = &#x27;&#x27;
+  var maxLength = options &#x26;&#x26; options.maxLength;
+  var trailing = options &#x26;&#x26; options.trailing === false ? false : true
+  if(&#x27;function&#x27; === typeof matcher)
+    mapper = matcher, matcher = null
+  if (!matcher)
+    matcher = /\r?\n/
+
+  function emit(stream, piece) {
+    if(mapper) {
+      try {
+        piece = mapper(piece)
+      }
+      catch (err) {
+        return stream.emit(&#x27;error&#x27;, err)
+      }
+      if(&#x27;undefined&#x27; !== typeof piece)
+        stream.queue(piece)
+    }
+    else
+      stream.queue(piece)
+  }
+
+  function next (stream, buffer) {
+    var pieces = ((soFar != null ? soFar : &#x27;&#x27;) + buffer).split(matcher)
+    soFar = pieces.pop()
+
+    if (maxLength &#x26;&#x26; soFar.length &#x3e; maxLength)
+      stream.emit(&#x27;error&#x27;, new Error(&#x27;maximum buffer reached&#x27;))
+
+    for (var i = 0; i &#x3c; pieces.length; i++) {
+      var piece = pieces[i]
+      emit(stream, piece)
+    }
+  }
+
+  return through(function (b) {
+    next(this, decoder.write(b))
+  },
+  function () {
+    if(decoder.end)
+      next(this, decoder.end())
+    if(trailing &#x26;&#x26; soFar != null)
+      emit(this, soFar)
+    this.queue(null)
+  })
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    stream.queue(piece)
+}
+else
+  stream.queue(piece)
+  }
+
+  function next (stream, buffer) {
+var pieces = ((soFar != null ? soFar : &#x27;&#x27;) + buffer).<span class="apidocCodeKeywordSpan">split</span>(matcher)
+soFar = pieces.pop()
+
+if (maxLength &#x26;&#x26; soFar.length &#x3e; maxLength)
+  stream.emit(&#x27;error&#x27;, new Error(&#x27;maximum buffer reached&#x27;))
+
+for (var i = 0; i &#x3c; pieces.length; i++) {
+  var piece = pieces[i]
+...</pre></li>
+    </ul>
+
 
 </div>
 

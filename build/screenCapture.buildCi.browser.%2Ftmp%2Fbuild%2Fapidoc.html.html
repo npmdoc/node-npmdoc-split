@@ -1,4 +1,4 @@
-<div class="apidocDiv">
+<html><head></head><body><div class="apidocDiv">
 <style>
 /*csslint
 */
@@ -47,17 +47,10 @@
 }
 </style>
 <h1>api documentation for
-    <a
-
-        href="http://github.com/dominictarr/split"
-
-    >split (v1.0.0)</a>
+    <a href="http://github.com/dominictarr/split">split (v1.0.0)</a>
 </h1>
 <h4>split a Text Stream into a Line Stream</h4>
-<div class="apidocSectionDiv"><a
-    href="#apidoc.tableOfContents"
-    id="apidoc.tableOfContents"
-><h1>table of contents</h1></a><ol>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
 
     <li class="apidocModuleLi"><a href="#apidoc.module.split">module split</a><ol>
 
@@ -87,10 +80,10 @@
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function split(matcher, mapper, options) {
   var decoder = new Decoder()
-  var soFar = &#x27;&#x27;
-  var maxLength = options &#x26;&#x26; options.maxLength;
-  var trailing = options &#x26;&#x26; options.trailing === false ? false : true
-  if(&#x27;function&#x27; === typeof matcher)
+  var soFar = ''
+  var maxLength = options &amp;&amp; options.maxLength;
+  var trailing = options &amp;&amp; options.trailing === false ? false : true
+  if('function' === typeof matcher)
     mapper = matcher, matcher = null
   if (!matcher)
     matcher = /\r?\n/
@@ -101,9 +94,9 @@
         piece = mapper(piece)
       }
       catch (err) {
-        return stream.emit(&#x27;error&#x27;, err)
+        return stream.emit('error', err)
       }
-      if(&#x27;undefined&#x27; !== typeof piece)
+      if('undefined' !== typeof piece)
         stream.queue(piece)
     }
     else
@@ -111,13 +104,13 @@
   }
 
   function next (stream, buffer) {
-    var pieces = ((soFar != null ? soFar : &#x27;&#x27;) + buffer).split(matcher)
+    var pieces = ((soFar != null ? soFar : '') + buffer).split(matcher)
     soFar = pieces.pop()
 
-    if (maxLength &#x26;&#x26; soFar.length &#x3e; maxLength)
-      stream.emit(&#x27;error&#x27;, new Error(&#x27;maximum buffer reached&#x27;))
+    if (maxLength &amp;&amp; soFar.length &gt; maxLength)
+      stream.emit('error', new Error('maximum buffer reached'))
 
-    for (var i = 0; i &#x3c; pieces.length; i++) {
+    for (var i = 0; i &lt; pieces.length; i++) {
       var piece = pieces[i]
       emit(stream, piece)
     }
@@ -129,7 +122,7 @@
   function () {
     if(decoder.end)
       next(this, decoder.end())
-    if(trailing &#x26;&#x26; soFar != null)
+    if(trailing &amp;&amp; soFar != null)
       emit(this, soFar)
     this.queue(null)
   })
@@ -142,13 +135,13 @@ else
   }
 
   function next (stream, buffer) {
-var pieces = ((soFar != null ? soFar : &#x27;&#x27;) + buffer).<span class="apidocCodeKeywordSpan">split</span>(matcher)
+var pieces = ((soFar != null ? soFar : '') + buffer).<span class="apidocCodeKeywordSpan">split</span>(matcher)
 soFar = pieces.pop()
 
-if (maxLength &#x26;&#x26; soFar.length &#x3e; maxLength)
-  stream.emit(&#x27;error&#x27;, new Error(&#x27;maximum buffer reached&#x27;))
+if (maxLength &amp;&amp; soFar.length &gt; maxLength)
+  stream.emit('error', new Error('maximum buffer reached'))
 
-for (var i = 0; i &#x3c; pieces.length; i++) {
+for (var i = 0; i &lt; pieces.length; i++) {
   var piece = pieces[i]
 ...</pre></li>
     </ul>
@@ -162,3 +155,4 @@ for (var i = 0; i &#x3c; pieces.length; i++) {
     ]
 </div>
 </div>
+</body></html>
