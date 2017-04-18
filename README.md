@@ -1,9 +1,14 @@
-# api documentation for  [split (v1.0.0)](http://github.com/dominictarr/split)  [![npm package](https://img.shields.io/npm/v/npmdoc-split.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-split) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-split.svg)](https://travis-ci.org/npmdoc/node-npmdoc-split)
+# npmdoc-split
+
+#### api documentation for  [split (v1.0.0)](http://github.com/dominictarr/split)  [![npm package](https://img.shields.io/npm/v/npmdoc-split.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-split) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-split.svg)](https://travis-ci.org/npmdoc/node-npmdoc-split)
+
 #### split a Text Stream into a Line Stream
 
-[![NPM](https://nodei.co/npm/split.png?downloads=true)](https://www.npmjs.com/package/split)
+[![NPM](https://nodei.co/npm/split.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/split)
 
-[![apidoc](https://npmdoc.github.io/node-npmdoc-split/build/screenCapture.buildNpmdoc.browser.%252Fhome%252Ftravis%252Fbuild%252Fnpmdoc%252Fnode-npmdoc-split%252Ftmp%252Fbuild%252Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-split/build/apidoc.html)
+- [https://npmdoc.github.io/node-npmdoc-split/build/apidoc.html](https://npmdoc.github.io/node-npmdoc-split/build/apidoc.html)
+
+[![apidoc](https://npmdoc.github.io/node-npmdoc-split/build/screenCapture.buildCi.browser.%252Ftmp%252Fbuild%252Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-split/build/apidoc.html)
 
 ![npmPackageListing](https://npmdoc.github.io/node-npmdoc-split/build/screenCapture.npmPackageListing.svg)
 
@@ -18,7 +23,6 @@
 {
     "author": {
         "name": "Dominic Tarr",
-        "email": "dominic.tarr@gmail.com",
         "url": "http://bit.ly/dominictarr"
     },
     "bugs": {
@@ -49,13 +53,11 @@
     "license": "MIT",
     "maintainers": [
         {
-            "name": "dominictarr",
-            "email": "dominic.tarr@gmail.com"
+            "name": "dominictarr"
         }
     ],
     "name": "split",
     "optionalDependencies": {},
-    "readme": "ERROR: No README data found!",
     "repository": {
         "type": "git",
         "url": "git://github.com/dominictarr/split.git"
@@ -66,16 +68,6 @@
     "version": "1.0.0"
 }
 ```
-
-
-
-# <a name="apidoc.tableOfContents"></a>[table of contents](#apidoc.tableOfContents)
-
-#### [module split](#apidoc.module.split)
-
-
-
-# <a name="apidoc.module.split"></a>[module split](#apidoc.module.split)
 
 
 
